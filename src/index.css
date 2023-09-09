@@ -23,6 +23,10 @@ html {
 }
 
 body {
+  /* background-image: url("https://miro.medium.com/v2/resize:fit:828/1*a-HMmQFQNC76zCZBZfFgJg.gif");
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: 50%; */
   min-height: 100vh;
   color: var(--color-light);
   background-color: var(--color-darkest);
