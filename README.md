@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+Site is live at https://react-quiz-app-lyart.vercel.app/
+
+![app (1) (1) (1)](https://github.com/Aishwarya9425/React-quiz-app/assets/51038336/f02dd663-2769-4dea-ad1d-64f9a2d38402)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
