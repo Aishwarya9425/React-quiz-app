@@ -11,6 +11,8 @@ const initialState = {
   questions: [],
   status: "ready",
   index: 0, //index of current question
+  answer: null,
+  points: 0,
 };
 
 //reducer function is the one which updates the state accordingly
@@ -24,6 +26,18 @@ function reducer(state, action) {
       return { ...state, status: "error" };
     case "start":
       return { ...state, status: "active" };
+    case "newAnswer":
+      //get the current question
+      const question = state.questions.at(state.index);
+      console.log("current question: " + question)
+      return {
+        ...state,
+        answer: action.payload,
+        points:
+          action.payload === question.correctOption
+            ? state.points + question.points
+            : state.points,
+      };
     default:
       throw new Error("Invalid action");
   }
@@ -35,7 +49,7 @@ export default function App() {
 
   //we will use useReducer to handle all states and updates
 
-  const [{ questions, status, index }, dispatch] = useReducer(
+  const [{ questions, status, index, answer }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -58,7 +72,13 @@ export default function App() {
         {status === "ready" && (
           <StartScreen numQuestions={numQuestions} dispatch={dispatch} />
         )}
-        {status === "active" && <Question question={questions[index]} />}
+        {status === "active" && (
+          <Question
+            question={questions[index]}
+            dispatch={dispatch}
+            answer={answer}
+          />
+        )}
       </Main>
     </div>
   );
